@@ -1,0 +1,91 @@
+<div class="h-100 d-flex">
+  <mat-sidenav-container class="w-100">
+    <mat-sidenav mode="side" opened>
+      <mat-nav-list>
+        <mat-list-item *ngFor="let link of links">
+          <a matLine routerLink="/styleguide">{{ link }}</a>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar class="small bg-light shadow">
+        <form [formGroup]="stateForm">
+          <div class="input-group">
+            <input
+              formControlName="searchFor"
+              type="text"
+              class="form-control border-light"
+              placeholder="Search for..."
+              aria-label="Search-for"
+              aria-describedby="button-addon2"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-primary border-0" type="button" id="button-search">
+                <mat-icon>search</mat-icon>
+              </button>
+            </div>
+          </div>
+        </form>
+        <div class="d-flex ml-auto">
+          <a class="mx-5 icon-toolbar-notification" href="#" mat-icon-button
+            ><mat-icon>notifications</mat-icon></a
+          >
+          <a class="icon-toolbar-notification" href="#" mat-icon-button><mat-icon>mail</mat-icon></a>
+          <mat-divider class="mx-5" [vertical]="true"></mat-divider>
+          <button class="border-0 bg-transparent d-flex" [matMenuTriggerFor]="menu">
+            <span class="mr-2">Victoria Hanes</span>
+            <mat-card class="bg-transparent p-0 shadow-none">
+              <div mat-card-avatar class="example-header-image"></div>
+            </mat-card>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+              <mat-icon>dialpad</mat-icon>
+              <span>Redial</span>
+            </button>
+            <button mat-menu-item disabled>
+              <mat-icon>voicemail</mat-icon>
+              <span>Check voicemail</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>notifications_off</mat-icon>
+              <span>Disable alerts</span>
+            </button>
+          </mat-menu>
+        </div>
+      </mat-toolbar>
+      <div class="container">
+        <div class="d-flex">
+          <h1>Dashboard</h1>
+          <button mat-raised-button color="primary">Generate report</button>
+        </div>
+        <mat-grid-list cols="2" rowHeight="2:1">
+          <mat-grid-tile>
+            <mat-card class="mat-card-1"
+              >EARNINGS (monthly)
+              <mat-icon>calendar_today</mat-icon>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-card class="mat-card-2"
+              >Simple card
+              <mat-icon>assignment</mat-icon>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-card class="mat-card-3"
+              >Simple card
+              <mat-icon>attach_money</mat-icon>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile>
+            <mat-card class="mat-card-4"
+              >Simple card
+              <mat-icon>chat</mat-icon>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

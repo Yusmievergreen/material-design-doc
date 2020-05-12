@@ -1,0 +1,39 @@
+#button-search {
+  line-height: 0.5;
+  border-top-right-radius: 0.5rem;
+}
+
+.icon-toolbar-notification {
+  height: 16px;
+  width: 16px;
+  color: lightgray;
+  &:hover {
+    color: darkgray;
+  }
+}
+
+.example-header-image {
+  background-image: url(../../assets/placeholderimg.jpg);
+  background-size: cover;
+}
+
+.mat-card-1 {
+  border-left: 3px solid blue;
+  height: 50%;
+  width: 75%;
+}
+.mat-card-2 {
+  border-left: 3px solid green;
+  height: 50%;
+  width: 75%;
+}
+.mat-card-3 {
+  border-left: 3px solid grey;
+  height: 50%;
+  width: 75%;
+}
+.mat-card-4 {
+  border-left: 3px solid yellow;
+  height: 50%;
+  width: 75%;
+}
