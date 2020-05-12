@@ -20,7 +20,8 @@ import {
   MatSelectModule,
   MatSliderModule,
   MatSlideToggleModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatStepperModule
 } from '@angular/material'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
@@ -49,7 +50,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
     MatSelectModule,
     MatSliderModule,
     MatSlideToggleModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatStepperModule
   ],
   exports: [
     MatListModule,
@@ -73,7 +75,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
     MatSelectModule,
     MatSliderModule,
     MatSlideToggleModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatStepperModule
   ]
 })
 export class CoreModule {}

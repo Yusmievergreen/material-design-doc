@@ -43,29 +43,9 @@ export class StyleguideComponent implements OnInit {
   seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn']
   step = 0
 
-  /** Error when invalid control is dirty, touched, or submitted. */
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted))
-  }
-
   /**Select with a custom ErrorStateMatcher */
   selected = new FormControl('valid', [Validators.required, Validators.pattern('valid')])
-
   matcher = new ErrorStateMatcher()
-
-  /* Expansion panel as accordion*/
-  setStep(index: number) {
-    this.step = index
-  }
-
-  nextStep() {
-    this.step++
-  }
-
-  prevStep() {
-    this.step--
-  }
 
   /*list with sections */
   folders: Section[] = [
@@ -195,21 +175,8 @@ export class StyleguideComponent implements OnInit {
   ]
 
   stateGroupOptions: Observable<StateGroup[]>
-
-  /**Slider with custom thumb label formatting.*/
-  formatLabel(value: number | null) {
-    if (!value) {
-      return 0
-    }
-
-    if (value >= 1000) {
-      return Math.round(value / 1000) + 'k'
-    }
-
-    return value
-  }
-
   /**Dynamic grid list */
+
   tiles: Tile[] = [
     { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
     { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
@@ -217,10 +184,21 @@ export class StyleguideComponent implements OnInit {
     { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' }
   ]
 
+  /**Stepper */
+  isLinear = false
+  firstFormGroup: FormGroup
+  secondFormGroup: FormGroup
+
   constructor(private fb: FormBuilder) {
     this.options = fb.group({
       hideRequired: false,
       floatLabel: 'auto'
+    })
+    this.firstFormGroup = this.fb.group({
+      firstCtrl: ['', Validators.required]
+    })
+    this.secondFormGroup = this.fb.group({
+      secondCtrl: ['', Validators.required]
     })
   }
 
@@ -239,5 +217,37 @@ export class StyleguideComponent implements OnInit {
     }
 
     return this.stateGroups
+  }
+
+  /*Error when invalid control is dirty, touched, or submitted.*/
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted))
+  }
+
+  /*Expansion panel as accordion*/
+  setStep(index: number) {
+    this.step = index
+  }
+
+  nextStep() {
+    this.step++
+  }
+
+  prevStep() {
+    this.step--
+  }
+
+  /*Slider with custom thumb label formatting.*/
+  formatLabel(value: number | null) {
+    if (!value) {
+      return 0
+    }
+
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k'
+    }
+
+    return value
   }
 }

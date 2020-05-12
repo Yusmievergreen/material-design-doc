@@ -379,6 +379,8 @@
   </mat-grid-list>
 </div>
 
+<div class="container p-5">
+  <h2>List with sections</h2>
 <mat-list>
   <h3 mat-subheader>Folders</h3>
   <mat-list-item *ngFor="let folder of folders">
@@ -394,3 +396,22 @@
     <p mat-line>{{ note.updated | date }}</p>
   </mat-list-item>
 </mat-list>
+</div>
+
+<div class="container p-5">
+  <h2>Tag group with dynamic height based on tab contents
+  </h2>
+  <mat-tab-group dynamicHeight>
+    <mat-tab label="Short tab">
+      <div class="example-small-box mat-elevation-z4">
+        Small content
+      </div>
+    </mat-tab>
+    <mat-tab label="Long tab">
+      <div class="example-large-box mat-elevation-z4">
+        Large content
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  
+</div>
