@@ -21,7 +21,19 @@ import {
   MatSliderModule,
   MatSlideToggleModule,
   MatExpansionModule,
-  MatStepperModule
+  MatStepperModule,
+  MatTabsModule,
+  MatTreeModule,
+  MatButtonToggleModule,
+  MatBadgeModule,
+  MatChipsModule,
+  MatProgressSpinnerModule,
+  MatProgressBarModule,
+  MatSnackBarModule,
+  MatPaginatorModule,
+  MatSortModule,
+  MatTableModule,
+  MatDialogModule
 } from '@angular/material'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
@@ -51,7 +63,18 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
     MatSliderModule,
     MatSlideToggleModule,
     MatExpansionModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTabsModule,
+    MatTreeModule,
+    MatButtonToggleModule,
+    MatBadgeModule,
+    MatChipsModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule
   ],
   exports: [
     MatListModule,
@@ -76,7 +99,19 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
     MatSliderModule,
     MatSlideToggleModule,
     MatExpansionModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTabsModule,
+    MatTreeModule,
+    MatButtonToggleModule,
+    MatBadgeModule,
+    MatChipsModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatDialogModule
   ]
 })
 export class CoreModule {}
