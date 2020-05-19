@@ -1,0 +1,23 @@
+<div class="container p-5">
+  <h2>Autocomplete with option groups</h2>
+  <form [formGroup]="stateForm">
+    <button mat-button (click)="autoActiveFirstOption$ = !autoActiveFirstOption$">Active First</button>
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        placeholder="States Group"
+        formControlName="stateGroup"
+        required
+        [matAutocomplete]="autoGroup"
+      />
+      <mat-autocomplete [autoActiveFirstOption]="autoActiveFirstOption$" #autoGroup="matAutocomplete">
+        <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+          <mat-option *ngFor="let name of group.names" [value]="name">
+            {{ name }}
+          </mat-option>
+        </mat-optgroup>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>

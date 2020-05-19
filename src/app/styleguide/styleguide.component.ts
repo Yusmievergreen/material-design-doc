@@ -2,61 +2,10 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms'
 import { ErrorStateMatcher } from '@angular/material/core'
 import { MatSnackBar, PageEvent, Sort } from '@angular/material'
-import { Observable } from 'rxjs'
-import { startWith, map } from 'rxjs/operators'
+
 import { MatDialog } from '@angular/material'
 import { DialogComponent } from './dialog/dialog.component'
-
-export interface StateGroup {
-  letter: string
-  names: string[]
-}
-
-export const _filter = (opt: string[], value: string): string[] => {
-  const filterValue = value.toLowerCase()
-
-  return opt.filter((item) => item.toLowerCase().indexOf(filterValue) === 0)
-}
-
-export interface Tile {
-  color: string
-  cols: number
-  rows: number
-  text: string
-}
-
-export interface Section {
-  name: string
-  updated: Date
-}
-
-export interface Dessert {
-  calories: number
-  carbs: number
-  fat: number
-  name: string
-  protein: number
-}
-
-export interface PeriodicElement {
-  name: string
-  position: number
-  weight: number
-  symbol: string
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' }
-]
+import { StateGroup, Tile, Section, Dessert, PeriodicElement, ELEMENT_DATA } from './styleguide.interfaces'
 
 @Component({
   selector: 'app-styleguide',
@@ -64,9 +13,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./styleguide.component.scss']
 })
 export class StyleguideComponent implements OnInit {
-  checked = false
-  indeterminate = false
-  labelPosition = 'after'
   disabled = false
   options: FormGroup
   favoriteSeason: string
@@ -102,109 +48,6 @@ export class StyleguideComponent implements OnInit {
       updated: new Date('1/18/16')
     }
   ]
-  /**Autocomplete with options groups */
-  stateForm: FormGroup = this.fb.group({
-    stateGroup: ''
-  })
-
-  stateGroups: StateGroup[] = [
-    {
-      letter: 'A',
-      names: ['Alabama', 'Alaska', 'Arizona', 'Arkansas']
-    },
-    {
-      letter: 'C',
-      names: ['California', 'Colorado', 'Connecticut']
-    },
-    {
-      letter: 'D',
-      names: ['Delaware']
-    },
-    {
-      letter: 'F',
-      names: ['Florida']
-    },
-    {
-      letter: 'G',
-      names: ['Georgia']
-    },
-    {
-      letter: 'H',
-      names: ['Hawaii']
-    },
-    {
-      letter: 'I',
-      names: ['Idaho', 'Illinois', 'Indiana', 'Iowa']
-    },
-    {
-      letter: 'K',
-      names: ['Kansas', 'Kentucky']
-    },
-    {
-      letter: 'L',
-      names: ['Louisiana']
-    },
-    {
-      letter: 'M',
-      names: [
-        'Maine',
-        'Maryland',
-        'Massachusetts',
-        'Michigan',
-        'Minnesota',
-        'Mississippi',
-        'Missouri',
-        'Montana'
-      ]
-    },
-    {
-      letter: 'N',
-      names: [
-        'Nebraska',
-        'Nevada',
-        'New Hampshire',
-        'New Jersey',
-        'New Mexico',
-        'New York',
-        'North Carolina',
-        'North Dakota'
-      ]
-    },
-    {
-      letter: 'O',
-      names: ['Ohio', 'Oklahoma', 'Oregon']
-    },
-    {
-      letter: 'P',
-      names: ['Pennsylvania']
-    },
-    {
-      letter: 'R',
-      names: ['Rhode Island']
-    },
-    {
-      letter: 'S',
-      names: ['South Carolina', 'South Dakota']
-    },
-    {
-      letter: 'T',
-      names: ['Tennessee', 'Texas']
-    },
-    {
-      letter: 'U',
-      names: ['Utah']
-    },
-    {
-      letter: 'V',
-      names: ['Vermont', 'Virginia']
-    },
-    {
-      letter: 'W',
-      names: ['Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
-    }
-  ]
-
-  stateGroupOptions: Observable<StateGroup[]>
 
   /**Dynamic grid list */
   tiles: Tile[] = [
@@ -258,12 +101,7 @@ export class StyleguideComponent implements OnInit {
     this.sortedData = this.desserts.slice()
   }
 
-  ngOnInit() {
-    this.stateGroupOptions = this.stateForm.get('stateGroup')!.valueChanges.pipe(
-      startWith(''),
-      map((value) => this._filterGroup(value))
-    )
-  }
+  ngOnInit() {}
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogComponent)
@@ -271,16 +109,6 @@ export class StyleguideComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`)
     })
-  }
-
-  private _filterGroup(value: string): StateGroup[] {
-    if (value) {
-      return this.stateGroups
-        .map((group) => ({ letter: group.letter, names: _filter(group.names, value) }))
-        .filter((group) => group.names.length > 0)
-    }
-
-    return this.stateGroups
   }
 
   /*Error when invalid control is dirty, touched, or submitted.*/
