@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms'
 import { ErrorStateMatcher } from '@angular/material/core'
 import { MatSnackBar, PageEvent, Sort } from '@angular/material'
-
 import { MatDialog } from '@angular/material'
 import { DialogComponent } from './dialog/dialog.component'
-import { StateGroup, Tile, Section, Dessert, PeriodicElement, ELEMENT_DATA } from './styleguide.interfaces'
+import { Tile, Section, Dessert, PeriodicElement, ELEMENT_DATA } from './styleguide.interfaces'
 
 @Component({
   selector: 'app-styleguide',
@@ -14,7 +13,7 @@ import { StateGroup, Tile, Section, Dessert, PeriodicElement, ELEMENT_DATA } fro
 })
 export class StyleguideComponent implements OnInit {
   disabled = false
-  options: FormGroup
+
   favoriteSeason: string
   seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn']
   step = 0
@@ -88,10 +87,6 @@ export class StyleguideComponent implements OnInit {
   sortedData: Dessert[]
 
   constructor(private fb: FormBuilder, public snackBar: MatSnackBar, public dialog: MatDialog) {
-    this.options = fb.group({
-      hideRequired: false,
-      floatLabel: 'auto'
-    })
     this.firstFormGroup = this.fb.group({
       firstCtrl: ['', Validators.required]
     })
