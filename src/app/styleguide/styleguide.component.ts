@@ -12,10 +12,6 @@ import { Tile, Section, Dessert, PeriodicElement, ELEMENT_DATA } from './stylegu
   styleUrls: ['./styleguide.component.scss']
 })
 export class StyleguideComponent implements OnInit {
-  disabled = false
-
-  favoriteSeason: string
-  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn']
   step = 0
 
   /**Select with a custom ErrorStateMatcher */

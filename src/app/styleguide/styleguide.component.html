@@ -1,6 +1,8 @@
 <app-autocomplete></app-autocomplete>
 <app-checkbox></app-checkbox>
 <app-form-field></app-form-field>
+<app-inputs></app-inputs>
+<app-radio-buttons-ng-model></app-radio-buttons-ng-model>
 
 <div class="container p-5">
   <h2>Date Picker</h2>
@@ -9,69 +11,6 @@
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
-</div>
-
-<div class="container p-5">
-  <h2>inputs in a form</h2>
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Company (disabled)" disabled value="Google" />
-    </mat-form-field>
-
-    <table class="example-full-width" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="First name" />
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Long Last Name That Will Be Truncated" />
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
-    <p>
-      <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
-      </mat-form-field>
-      <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Address 2"></textarea>
-      </mat-form-field>
-    </p>
-
-    <table class="example-full-width" cellspacing="0">
-      <tr>
-        <td>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="City" />
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="State" />
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="example-full-width">
-            <input matInput #postalCode maxlength="5" placeholder="Postal Code" value="94043" />
-            <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
-  </form>
-</div>
-
-<div class="container p-5">
-  <h2>Radio button with Ng model</h2>
-  <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteSeason">
-    <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
-      {{ season }}
-    </mat-radio-button>
-  </mat-radio-group>
-  <div class="example-selected-value">Your favorite season is: {{ favoriteSeason }}</div>
 </div>
 
 <div class="container p-5">

@@ -7,7 +7,9 @@ import { CoreModule } from '../core/core.module'
 import { DialogComponent } from './dialog/dialog.component'
 import { AutocompleteComponent } from './autocomplete/autocomplete.component'
 import { CheckboxComponent } from './checkbox/checkbox.component'
-import { FormFieldComponent } from './form-field/form-field.component'
+import { FormFieldComponent } from './form-field/form-field.component';
+import { InputsComponent } from './inputs/inputs.component';
+import { RadioButtonsNgModelComponent } from './radio-buttons-ng-model/radio-buttons-ng-model.component'
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { FormFieldComponent } from './form-field/form-field.component'
     DialogComponent,
     AutocompleteComponent,
     CheckboxComponent,
-    FormFieldComponent
+    FormFieldComponent,
+    InputsComponent,
+    RadioButtonsNgModelComponent
   ],
   imports: [CommonModule, StyleguideRoutingModule, CoreModule],
   entryComponents: [DialogComponent]
