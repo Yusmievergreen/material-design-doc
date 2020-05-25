@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import { FormBuilder, FormGroup, Validators, FormControl, FormGroupDirective, NgForm } from '@angular/forms'
-import { ErrorStateMatcher } from '@angular/material/core'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+
 import { MatSnackBar, PageEvent, Sort } from '@angular/material'
 import { MatDialog } from '@angular/material'
 import { DialogComponent } from './dialog/dialog.component'
@@ -12,12 +12,6 @@ import { Tile, Section, Dessert, PeriodicElement, ELEMENT_DATA } from './stylegu
   styleUrls: ['./styleguide.component.scss']
 })
 export class StyleguideComponent implements OnInit {
-  step = 0
-
-  /**Select with a custom ErrorStateMatcher */
-  selected = new FormControl('valid', [Validators.required, Validators.pattern('valid')])
-  matcher = new ErrorStateMatcher()
-
   /*list with sections */
   folders: Section[] = [
     {
@@ -102,25 +96,6 @@ export class StyleguideComponent implements OnInit {
     })
   }
 
-  /*Error when invalid control is dirty, touched, or submitted.*/
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted))
-  }
-
-  /*Expansion panel as accordion*/
-  setStep(index: number) {
-    this.step = index
-  }
-
-  nextStep() {
-    this.step++
-  }
-
-  prevStep() {
-    this.step--
-  }
-
   /*Slider with custom thumb label formatting.*/
   formatLabel(value: number | null) {
     if (!value) {
@@ -169,6 +144,7 @@ export class StyleguideComponent implements OnInit {
       }
     })
   }
+
   /**Table */
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol']
   dataSource = ELEMENT_DATA
