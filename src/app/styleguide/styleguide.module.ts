@@ -12,7 +12,10 @@ import { InputsComponent } from './inputs/inputs.component'
 import { RadioButtonComponent } from './radio-button/radio-button.component'
 import { SelectComponent } from './select/select.component';
 import { MenuComponent } from './menu/menu.component';
-import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component'
+import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
+import { ListsComponent } from './lists/lists.component';
+import { SortingComponent } from './sorting/sorting.component';
+import { TableComponent } from './table/table.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.compo
     RadioButtonComponent,
     SelectComponent,
     MenuComponent,
-    ExpansionPanelComponent
+    ExpansionPanelComponent,
+    ListsComponent,
+    SortingComponent,
+    TableComponent
   ],
   imports: [CommonModule, StyleguideRoutingModule, CoreModule],
   entryComponents: [DialogComponent]

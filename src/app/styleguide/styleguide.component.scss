@@ -25,10 +25,6 @@ mat-slider {
   justify-content: space-between;
   align-items: center;
 }
-//list with sections
-.mat-list-icon {
-  color: rgba(0, 0, 0, 0.54);
-}
 
 //Tag group with dynamic height based on tab contents
 .example-small-box,
@@ -53,12 +49,4 @@ mat-slider {
 //Button toggle exclusive selection
 .example-selected-value {
   margin: 15px 0;
-}
-//Sorting
-.mat-sort-header-container {
-  align-items: center;
-}
-//Table
-table {
-  width: 100%;
 }

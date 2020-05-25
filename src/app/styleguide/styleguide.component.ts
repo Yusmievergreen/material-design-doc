@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-
-import { MatSnackBar, PageEvent, Sort } from '@angular/material'
+import { MatSnackBar, PageEvent } from '@angular/material'
 import { MatDialog } from '@angular/material'
 import { DialogComponent } from './dialog/dialog.component'
-import { Tile, Section, Dessert, PeriodicElement, ELEMENT_DATA } from './styleguide.interfaces'
+import { Tile } from './styleguide.interfaces'
 
 @Component({
   selector: 'app-styleguide',
@@ -12,32 +11,6 @@ import { Tile, Section, Dessert, PeriodicElement, ELEMENT_DATA } from './stylegu
   styleUrls: ['./styleguide.component.scss']
 })
 export class StyleguideComponent implements OnInit {
-  /*list with sections */
-  folders: Section[] = [
-    {
-      name: 'Photos',
-      updated: new Date('1/1/16')
-    },
-    {
-      name: 'Recipes',
-      updated: new Date('1/17/16')
-    },
-    {
-      name: 'Work',
-      updated: new Date('1/28/16')
-    }
-  ]
-  notes: Section[] = [
-    {
-      name: 'Vacation Itinerary',
-      updated: new Date('2/20/16')
-    },
-    {
-      name: 'Kitchen Remodel',
-      updated: new Date('1/18/16')
-    }
-  ]
-
   /**Dynamic grid list */
   tiles: Tile[] = [
     { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
@@ -65,17 +38,6 @@ export class StyleguideComponent implements OnInit {
   /*MatPaginator Output*/
   pageEvent: PageEvent
 
-  /**Sorting */
-  desserts: Dessert[] = [
-    { name: 'Frozen yogurt', calories: 159, fat: 6, carbs: 24, protein: 4 },
-    { name: 'Ice cream sandwich', calories: 237, fat: 9, carbs: 37, protein: 4 },
-    { name: 'Eclair', calories: 262, fat: 16, carbs: 24, protein: 6 },
-    { name: 'Cupcake', calories: 305, fat: 4, carbs: 67, protein: 4 },
-    { name: 'Gingerbread', calories: 356, fat: 16, carbs: 49, protein: 4 }
-  ]
-
-  sortedData: Dessert[]
-
   constructor(private fb: FormBuilder, public snackBar: MatSnackBar, public dialog: MatDialog) {
     this.firstFormGroup = this.fb.group({
       firstCtrl: ['', Validators.required]
@@ -83,7 +45,6 @@ export class StyleguideComponent implements OnInit {
     this.secondFormGroup = this.fb.group({
       secondCtrl: ['', Validators.required]
     })
-    this.sortedData = this.desserts.slice()
   }
 
   ngOnInit() {}
@@ -118,39 +79,4 @@ export class StyleguideComponent implements OnInit {
   setPageSizeOptions(setPageSizeOptionsInput: string) {
     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map((str) => +str)
   }
-  /**Sorting */
-  sortData(sort: Sort) {
-    const data = this.desserts.slice()
-    if (!sort.active || sort.direction === '') {
-      this.sortedData = data
-      return
-    }
-
-    this.sortedData = data.sort((a, b) => {
-      const isAsc = sort.direction === 'asc'
-      switch (sort.active) {
-        case 'name':
-          return compare(a.name, b.name, isAsc)
-        case 'calories':
-          return compare(a.calories, b.calories, isAsc)
-        case 'fat':
-          return compare(a.fat, b.fat, isAsc)
-        case 'carbs':
-          return compare(a.carbs, b.carbs, isAsc)
-        case 'protein':
-          return compare(a.protein, b.protein, isAsc)
-        default:
-          return 0
-      }
-    })
-  }
-
-  /**Table */
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol']
-  dataSource = ELEMENT_DATA
-}
-
-/**Sorting */
-function compare(a, b, isAsc) {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1)
 }
