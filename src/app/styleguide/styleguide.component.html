@@ -9,88 +9,20 @@
 <app-lists></app-lists>
 <app-sorting></app-sorting>
 <app-table></app-table>
-
-<div class="container p-5">
-  <h2>Date Picker</h2>
-  <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Choose a date" />
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
-</div>
-
-<div class="container p-5">
-  <h2>Slider with custom thumb label formatting</h2>
-  <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
-</div>
-
-<div class="container p-5">
-  <h2>Basic slide-toggles</h2>
-  <mat-slide-toggle>Slide me!</mat-slide-toggle>
-</div>
-
-<div class="container p-5">
-  <h2>Multi-row toolbar</h2>
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Custom Toolbar</span>
-    </mat-toolbar-row>
-
-    <mat-toolbar-row>
-      <span>Second Line</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon">verified_user</mat-icon>
-    </mat-toolbar-row>
-
-    <mat-toolbar-row>
-      <span>Third Line</span>
-      <span class="example-spacer"></span>
-      <mat-icon class="example-icon">favorite</mat-icon>
-      <mat-icon class="example-icon">delete</mat-icon>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</div>
-
-<div class="conainer p-5">
-  <h2>Card with multiples sections</h2>
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <img
-      mat-card-image
-      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-      alt="Photo of a Shiba Inu"
-    />
-    <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A
-        small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for
-        hunting.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
-
-<div class="container p-5">
-  <h2>Dynamic grid list</h2>
-  <mat-grid-list cols="4" rowHeight="100px">
-    <mat-grid-tile
-      *ngFor="let tile of tiles"
-      [colspan]="tile.cols"
-      [rowspan]="tile.rows"
-      [style.background]="tile.color"
-    >
-      {{ tile.text }}
-    </mat-grid-tile>
-  </mat-grid-list>
-</div>
+<app-datepicker></app-datepicker>
+<app-slider></app-slider>
+<app-slide></app-slide>
+<app-toolbar></app-toolbar>
+<app-card></app-card>
+<app-buttons></app-buttons>
+<app-button-toggle></app-button-toggle>
+<app-progress-spinner></app-progress-spinner>
+<app-progress-bar></app-progress-bar>
+<app-snack-bar></app-snack-bar>
+<app-paginator></app-paginator>
+<app-chips></app-chips>
+<app-badge></app-badge>
+<app-stepper></app-stepper>
 
 <div class="container p-5">
   <h2>Tab group with dynamic height based on tab contents</h2>
@@ -109,137 +41,6 @@
 </div>
 
 <div class="container p-5">
-  <h2>Buttons</h2>
-  <div>
-    <button mat-button color="primary">Primary</button>
-  </div>
-  <div>
-    <h3>Raised Buttons</h3>
-    <button mat-raised-button color="warn">Warn</button>
-  </div>
-  <div>
-    <h3>Stroked Buttons</h3>
-    <button mat-stroked-button color="accent">Accent</button>
-  </div>
-  <div>
-    <h3>Icon Buttons</h3>
-    <button mat-icon-button color="accent">
-      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
-    </button>
-  </div>
-  <div>
-    <h3>Fab Buttons</h3>
-    <button mat-fab color="primary">Primary</button>
-  </div>
-  <div>
-    <h3>Mini Fab Buttons</h3>
-    <button mat-mini-fab disabled>Disabled</button>
-  </div>
-</div>
-
-<div class="container p-5">
-  <h2>Button toggle</h2>
-  <mat-button-toggle-group #group="matButtonToggleGroup">
-    <mat-button-toggle value="left">
-      <mat-icon>format_align_left</mat-icon>
-    </mat-button-toggle>
-    <mat-button-toggle value="center">
-      <mat-icon>format_align_center</mat-icon>
-    </mat-button-toggle>
-    <mat-button-toggle value="right">
-      <mat-icon>format_align_right</mat-icon>
-    </mat-button-toggle>
-    <mat-button-toggle value="justify" disabled>
-      <mat-icon>format_align_justify</mat-icon>
-    </mat-button-toggle>
-  </mat-button-toggle-group>
-  <div class="example-selected-value">Selected value: {{ group.value }}</div>
-</div>
-
-<div class="container p-5">
-  <h2>Badge</h2>
-  <p>
-    <span matBadge="4" matBadgeOverlap="false">Text with a badge</span>
-  </p>
-
-  <p>
-    Button with a badge on the left
-    <button mat-raised-button color="primary" matBadge="8" matBadgePosition="before" matBadgeColor="accent">
-      Action
-    </button>
-  </p>
-
-  <p>
-    Icon with a badge
-    <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
-  </p>
-</div>
-
-<div class="container p-5">
-  <h2>Chips</h2>
-  <mat-chip-list>
-    <mat-chip>One fish</mat-chip>
-    <mat-chip>Two fish</mat-chip>
-    <mat-chip color="primary" selected>Primary fish</mat-chip>
-    <mat-chip color="accent" selected>Accent fish</mat-chip>
-  </mat-chip-list>
-</div>
-
-<div class="container p-5">
-  <h2>Progress spinner</h2>
-  <mat-progress-spinner [color]="color" [mode]="mode" [value]="value"> </mat-progress-spinner>
-</div>
-
-<div class="container p-5">
-  <h2>Progress bar</h2>
-  <mat-progress-bar [color]="color" [mode]="mode" [value]="value"></mat-progress-bar>
-</div>
-
-<div class="container p-5">
-  <h2>Snack Bar</h2>
-  <mat-form-field>
-    <input matInput value="Disco party!" placeholder="Message" #message />
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput value="Dance" placeholder="Action" #action />
-  </mat-form-field>
-
-  <button mat-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button>
-</div>
-
-<div class="container p-5">
-  <h2>paginator</h2>
-  <mat-form-field>
-    List length:
-    <input matInput [(ngModel)]="length" />
-  </mat-form-field>
-
-  <mat-form-field>
-    Page size:
-    <input matInput [(ngModel)]="pageSize" />
-  </mat-form-field>
-  <mat-form-field>
-    Page size options:
-    <input matInput [ngModel]="pageSizeOptions" (ngModelChange)="setPageSizeOptions($event)" />
-  </mat-form-field>
-
-  <mat-paginator
-    [length]="length"
-    [pageSize]="pageSize"
-    [pageSizeOptions]="pageSizeOptions"
-    (page)="pageEvent = $event"
-  >
-  </mat-paginator>
-  <div *ngIf="pageEvent">
-    <h5>Page Change Event Properties</h5>
-    <div>List length: {{ pageEvent.length }}</div>
-    <div>Page size: {{ pageEvent.pageSize }}</div>
-    <div>Page index: {{ pageEvent.pageIndex }}</div>
-  </div>
-
-  <div class="container p-5">
-    <h2>Dialog</h2>
-    <button mat-button (click)="openDialog()">Open dialog</button>
-  </div>
+  <h2>Dialog</h2>
+  <button mat-button (click)="openDialog()">Open dialog</button>
 </div>
