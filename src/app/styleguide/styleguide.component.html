@@ -1,46 +1,142 @@
-<app-autocomplete></app-autocomplete>
-<app-checkbox></app-checkbox>
-<app-form-field></app-form-field>
-<app-inputs></app-inputs>
-<app-radio-button></app-radio-button>
-<app-select></app-select>
-<app-menu></app-menu>
-<app-expansion-panel></app-expansion-panel>
-<app-lists></app-lists>
-<app-sorting></app-sorting>
-<app-table></app-table>
-<app-datepicker></app-datepicker>
-<app-slider></app-slider>
-<app-slide></app-slide>
-<app-toolbar></app-toolbar>
-<app-card></app-card>
-<app-buttons></app-buttons>
-<app-button-toggle></app-button-toggle>
-<app-progress-spinner></app-progress-spinner>
-<app-progress-bar></app-progress-bar>
-<app-snack-bar></app-snack-bar>
-<app-paginator></app-paginator>
-<app-chips></app-chips>
-<app-badge></app-badge>
-<app-stepper></app-stepper>
-
 <div class="container p-5">
-  <h2>Tab group with dynamic height based on tab contents</h2>
+  <h2>Tab group</h2>
   <mat-tab-group dynamicHeight>
-    <mat-tab label="Short tab">
-      <div class="example-small-box mat-elevation-z4">
-        Small content
+    <mat-tab label="Autocomplete">
+      <div>
+        <app-autocomplete></app-autocomplete>
       </div>
     </mat-tab>
-    <mat-tab label="Long tab">
-      <div class="example-large-box mat-elevation-z4">
-        Large content
+    <mat-tab label="Bagde">
+      <div>
+        <app-badge></app-badge>
+      </div>
+    </mat-tab>
+    <mat-tab label="Button-toggle">
+      <div>
+        <app-button-toggle></app-button-toggle>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Buttons">
+      <div>
+        <app-buttons></app-buttons>
+      </div>
+    </mat-tab>
+    <mat-tab label="Checkbox">
+      <div>
+        <app-checkbox></app-checkbox>
+      </div>
+    </mat-tab>
+    <mat-tab label="Card">
+      <div>
+        <app-card></app-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Chips">
+      <div>
+        <app-chips></app-chips>
+      </div>
+    </mat-tab>
+    <mat-tab label="Datepicker">
+      <div>
+        <app-datepicker></app-datepicker>
+      </div>
+    </mat-tab>
+    <mat-tab label="Dialog">
+      <div class="container p-5">
+        <h2>Dialog</h2>
+        <button mat-button (click)="openDialog()">Open dialog</button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Expansion Panel">
+      <div>
+        <app-expansion-panel></app-expansion-panel>
+      </div>
+    </mat-tab>
+    <mat-tab label="Form Field">
+      <div>
+        <app-form-field></app-form-field>
+      </div>
+    </mat-tab>
+    <mat-tab label="Grid">
+      <div>
+        <app-grid></app-grid>
+      </div>
+    </mat-tab>
+    <mat-tab label="Inputs">
+      <div>
+        <app-inputs></app-inputs>
+      </div>
+    </mat-tab>
+    <mat-tab label="Lists">
+      <div>
+        <app-lists></app-lists>
+      </div>
+    </mat-tab>
+    <mat-tab label="Menu">
+      <div>
+        <app-menu></app-menu>
+      </div>
+    </mat-tab>
+    <mat-tab label="Paginator">
+      <div>
+        <app-paginator></app-paginator>
+      </div>
+    </mat-tab>
+    <mat-tab label="Progress Bar">
+      <div>
+        <app-progress-bar></app-progress-bar>
+      </div>
+    </mat-tab>
+    <mat-tab label="Progress Spinner">
+      <div>
+        <app-progress-spinner></app-progress-spinner>
+      </div>
+    </mat-tab>
+    <mat-tab label="Radio Button">
+      <div>
+        <app-radio-button></app-radio-button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Select">
+      <div>
+        <app-select></app-select>
+      </div>
+    </mat-tab>
+    <mat-tab label="Slide">
+      <div>
+        <app-slide></app-slide>
+      </div>
+    </mat-tab>
+    <mat-tab label="Slider">
+      <div>
+        <app-slider></app-slider>
+      </div>
+    </mat-tab>
+    <mat-tab label="Snack Bar">
+      <div>
+        <app-snack-bar></app-snack-bar>
+      </div>
+    </mat-tab>
+    <mat-tab label="Sorting">
+      <div>
+        <app-sorting></app-sorting>
+      </div>
+    </mat-tab>
+    <mat-tab label="Stepper">
+      <div>
+        <app-stepper></app-stepper>
+      </div>
+    </mat-tab>
+    <mat-tab label="Table">
+      <div>
+        <app-table></app-table>
+      </div>
+    </mat-tab>
+    <mat-tab label="Toolbar">
+      <div>
+        <app-toolbar></app-toolbar>
       </div>
     </mat-tab>
   </mat-tab-group>
-</div>
-
-<div class="container p-5">
-  <h2>Dialog</h2>
-  <button mat-button (click)="openDialog()">Open dialog</button>
 </div>
