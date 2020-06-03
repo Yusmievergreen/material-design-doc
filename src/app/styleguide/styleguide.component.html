@@ -1,6 +1,11 @@
 <div class="container p-5">
   <h2>Tab group</h2>
   <mat-tab-group dynamicHeight>
+    <mat-tab label="Table">
+      <div>
+        <app-table></app-table>
+      </div>
+    </mat-tab>
     <mat-tab label="Autocomplete">
       <div>
         <app-autocomplete></app-autocomplete>
@@ -126,11 +131,6 @@
     <mat-tab label="Stepper">
       <div>
         <app-stepper></app-stepper>
-      </div>
-    </mat-tab>
-    <mat-tab label="Table">
-      <div>
-        <app-table></app-table>
       </div>
     </mat-tab>
     <mat-tab label="Toolbar">

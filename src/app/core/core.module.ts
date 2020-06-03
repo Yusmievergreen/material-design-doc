@@ -36,11 +36,12 @@ import {
   MatDialogModule
 } from '@angular/material'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
-
+import { HttpClientModule } from '@angular/common/http'
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
+    HttpClientModule,
     MatListModule,
     MatSidenavModule,
     MatIconModule,
@@ -77,6 +78,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms'
     MatTableModule
   ],
   exports: [
+    HttpClientModule,
     MatListModule,
     MatSidenavModule,
     MatIconModule,

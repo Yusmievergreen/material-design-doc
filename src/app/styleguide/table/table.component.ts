@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { ELEMENT_DATA, PeriodicElement } from '../styleguide.interfaces'
+import { StyleguideService } from '../styleguide.service'
 
 @Component({
   selector: 'app-table',
@@ -7,10 +7,23 @@ import { ELEMENT_DATA, PeriodicElement } from '../styleguide.interfaces'
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
-  constructor() {}
+  displayedColumns: string[] = ['name', 'gender', 'location']
+  dataSource = []
+
+  constructor(private styleguideService: StyleguideService) {
+    this.styleguideService.getEmployeeList().subscribe((data) => {
+      this.dataSource = data.map((item) => ({
+        ...item,
+        name: `${item.name.first} ${item.name.last}`,
+        location:
+          item.location.country == 'France'
+            ? `${item.location.city} ${item.location.state}`
+            : `${item.location.city}, ${item.location.state}, ${item.location.country}`
+      }))
+
+      console.log(this.displayedColumns, this.dataSource)
+    })
+  }
 
   ngOnInit() {}
-
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol']
-  dataSource = ELEMENT_DATA
 }
