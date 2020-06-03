@@ -20,8 +20,6 @@ export class TableComponent implements OnInit {
             ? `${item.location.city} ${item.location.state}`
             : `${item.location.city}, ${item.location.state}, ${item.location.country}`
       }))
-
-      console.log(this.displayedColumns, this.dataSource)
     })
   }
 

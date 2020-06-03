@@ -3,7 +3,7 @@
     <mat-sidenav mode="side" opened>
       <mat-nav-list>
         <mat-list-item *ngFor="let link of links">
-          <a matLine routerLink="/styleguide">{{ link }}</a>
+          <a matLine [routerLink]="[link.link]">{{ link.name }}</a>
         </mat-list-item>
       </mat-nav-list>
     </mat-sidenav>
@@ -55,34 +55,12 @@
         </div>
       </mat-toolbar>
       <div class="container">
-        <div class="d-flex">
+        <div class="d-flex p-3">
           <h1>Dashboard</h1>
-          <button mat-raised-button color="primary">Generate report</button>
         </div>
-        <mat-grid-list cols="2" rowHeight="2:1">
-          <mat-grid-tile>
-            <mat-card class="mat-card-1"
-              >EARNINGS (monthly)
-              <mat-icon>calendar_today</mat-icon>
-            </mat-card>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <mat-card class="mat-card-2"
-              >Simple card
-              <mat-icon>assignment</mat-icon>
-            </mat-card>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <mat-card class="mat-card-3"
-              >Simple card
-              <mat-icon>attach_money</mat-icon>
-            </mat-card>
-          </mat-grid-tile>
-          <mat-grid-tile>
-            <mat-card class="mat-card-4"
-              >Simple card
-              <mat-icon>chat</mat-icon>
-            </mat-card>
+        <mat-grid-list cols="2" rowHeight="100px">
+          <mat-grid-tile *ngFor="let tile of tiles" [style.borderColor]="tile.color" class="dashboard-tile">
+            {{ tile.text }}
           </mat-grid-tile>
         </mat-grid-list>
       </div>

@@ -7,7 +7,13 @@ import { FormGroup, FormBuilder } from '@angular/forms'
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  links = ['link']
+  links = [{ name: 'Styleguide', link: '/styleguide' }]
+  tiles = [
+    { text: 'One', color: 'lightblue' },
+    { text: 'Two', color: 'lightgreen' },
+    { text: 'Three', color: 'lightpink' },
+    { text: 'Four', color: '#DDBDF1' }
+  ]
   stateForm: FormGroup = this.fb.group({
     searchFor: ''
   })
